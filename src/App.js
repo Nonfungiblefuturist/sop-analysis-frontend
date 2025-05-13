@@ -1,8 +1,8 @@
 import React from 'react';
-import SopForm from './SopForm';
+import ApprovalWorkflow from './ApprovalWorkflow';
 
 function App() {
-  return <SopForm />;
+  return <ApprovalWorkflow />;
 }
 
 export default App;
