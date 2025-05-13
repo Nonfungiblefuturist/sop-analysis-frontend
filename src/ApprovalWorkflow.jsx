@@ -69,6 +69,48 @@ const handleAnalyzeSopWithAI = async () => {
   setAiSopAnalysis(null);
 
   setTimeout(() => {
+    const text = studentData.sopText.toLowerCase();
+    const isStrong = text.includes("lincoln") && text.includes("career") && text.length > 500;
+    const isWeak = text.includes("i want") || text.includes("because i like") || text.length < 250;
+
+    const mockAnalysis = {
+      clarity_goals: isStrong ? "Clear" : isWeak ? "Unclear" : "Somewhat Clear",
+      relevance_preparation: isStrong ? "Relevant" : "Needs Improvement",
+      motivation_fit: isStrong ? "Good Fit" : "Generic",
+      structure_writing: isStrong ? "Well-Structured" : isWeak ? "Disorganized" : "Decent",
+      uniqueness_authenticity: isStrong ? "Authentic" : "Clichéd",
+      strengths: isStrong
+        ? ["Demonstrates strong academic direction.", "Tailored to Lincoln."]
+        : ["Basic intent is visible."],
+      areas_for_improvement: isStrong
+        ? ["Tighten structure."]
+        : ["Needs specificity.", "Overuse of vague phrases."],
+      recommendations: isStrong
+        ? ["Minor edits for polish."]
+        : ["Focus on clarity.", "Remove clichés."],
+      overall_impression: isStrong
+        ? "Promising Candidate"
+        : isWeak
+        ? "Needs Work"
+        : "Average"
+    };
+
+    setAiSopAnalysis(mockAnalysis);
+    setIsAnalyzingSop(false);
+
+    if (mockAnalysis.overall_impression === "Promising Candidate" && !studentData.sopReviewed) {
+      setStudentData(prev => ({
+        ...prev,
+        sopReviewed: true
+      }));
+    }
+  }, 2500);
+};
+
+  setIsAnalyzingSop(true);
+  setAiSopAnalysis(null);
+
+  setTimeout(() => {
     const mockAnalysis = {
       clarity_goals: "Clear",
       relevance_preparation: "Relevant",
