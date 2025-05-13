@@ -105,46 +105,6 @@ const handleAnalyzeSopWithAI = async () => {
   }, 2500);
 };
 
-  setIsAnalyzingSop(true);
-  setAiSopAnalysis(null);
-
-  setTimeout(() => {
-    const mockAnalysis = {
-      clarity_goals: "Clear",
-      relevance_preparation: "Relevant",
-      motivation_fit: "Good Fit",
-      structure_writing: "Good",
-      uniqueness_authenticity: "Somewhat Unique",
-      strengths: [
-        "Clearly articulates long-term career goals.",
-        "Effectively connects past research experience to program interests.",
-        "Shows genuine enthusiasm for specific faculty work at Lincoln University."
-      ],
-      areas_for_improvement: [
-        "Could be more specific about short-term academic objectives.",
-        "Some sections are verbose.",
-        "The 'Why Lincoln?' part could be strengthened."
-      ],
-      recommendations: [
-        "Refine introduction to state specific program and goal.",
-        "Review for conciseness.",
-        "Add 1-2 sentences linking personal values to Lincoln's mission."
-      ],
-      overall_impression: "Promising Candidate"
-    };
-
-    setAiSopAnalysis(mockAnalysis);
-    setIsAnalyzingSop(false);
-
-    // ✅ Auto-check SOP Reviewed if AI thinks it's good
-    if (mockAnalysis.overall_impression === "Promising Candidate" && !studentData.sopReviewed) {
-      setStudentData(prev => ({
-        ...prev,
-        sopReviewed: true
-      }));
-    }
-  }, 2500);
-};
 
   // --- MERGED & UPDATED Grading Systems Data ---
   // Prioritizes structure from SimpleGradeConverter for specified countries,
