@@ -66,8 +66,6 @@ const handleAnalyzeSopWithAI = async () => {
   }
 
   setIsAnalyzingSop(true);
-  setAiSopAnalysis(null);
-
   setTimeout(() => {
     const text = studentData.sopText.toLowerCase();
     const isStrong = text.includes("lincoln") && text.includes("career") && text.length > 500;
