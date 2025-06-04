@@ -2,6 +2,25 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Development Workflow
+
+### ✍️ Commit Message Guide (Semantic Release)
+
+Use these prefixes for commit messages:
+
+- `feat:` New features
+- `fix:` Bug fixes
+- `docs:` Documentation only
+- `style:` Code formatting
+- `refactor:` Code refactoring without behavior change
+- `test:` Adding or updating tests
+- `chore:` Maintenance or build changes
+
+#### Example:
+```bash
+git commit -m "feat: add reviewer filter to dashboard"
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
